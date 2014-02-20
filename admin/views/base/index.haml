@@ -1,0 +1,43 @@
+#block-text.block
+  .content
+    %h2.title Overview
+    .inner
+      %p
+        Chasebowman.com is build on top of an open-source framework, called Padrino, which is a standard MVC web-app framework that uses the Ruby programming language.  
+    %h2.title Structure
+    .inner
+      %p
+        The site folder is located at /var/www/passenger/bowman/chasebowman.com and contains the following subfolders:
+        %ul.list
+          %li 
+            %b 
+              admin/ 
+            = "- This the directory of the CMS" 
+          %li 
+            %b 
+              app/ 
+            = "- This is the application folder (contains all models, views and controllers).  Below are the important ones."          
+          %li 
+            %b 
+              app/stylesheets/ 
+            = "- This folder contains all the stylesheets for the web-app.  They are written in SASS, a type of shorthand CSS"          
+          %li 
+            %b 
+              app/views/ 
+            = "- In this folder are all the snippets of HTML (written in HAML, a type of shorthand HTML) that generate the pages"
+          %li 
+            %b 
+              config/ 
+            = "- Contains application specific configurations"  
+          %li 
+            %b 
+              db/ 
+            = "- Contains the database file, chasebowman_com_production.db. We recommend that this file be backed up on a regular basis (downloaded to your hard drive through FTP)"  
+    %h2.title Adding, Removing and Editing Content
+    .inner
+      %p All changes to the site content are done through the CMS, with the exception of the logo file. For all the areas of the CMS, there is a button to list all contents of the section and add a new item to the section.
+      %img{:src => "/admin/assets/newlist.png"}
+      %p Next to each item in the section, here are two links: one to edit that item and one to delete.  Please note: once deleted the item is permanently gone.  There is no confirmation to delete an item.
+      %img{:src => "/admin/assets/editdelete.png"}
+    %h2.title 
+-content_for :sidebar, partial("base/sidebar")

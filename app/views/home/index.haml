@@ -1,0 +1,32 @@
+#header
+	- if session[:menu_version] == "dynamic"
+		Using dynamic menu.
+		= link_to 'Go back to static menu', '/menu-static'
+
+	#video
+		- if @reel != nil
+			= partial('home/video_embed', :object => @reel)
+		- else
+			= if(@videos[0].type == 'regular') then partial('home/video_embed', :object => @videos[0]) else partial('home/video_vimeo', :object => @videos[0]) end
+	#logo
+		%h1 '<strong>CHASE BOWMAN</strong> DIRECTOR OF PHOTOGRAPHY'
+		
+	.clearfix
+	
+	#hmenu
+		#menu_header
+			CATEGORY
+		#item_container
+			%ul#item_list{:style => "width:" + (@videos.size*(225 + 1)).to_s + "px"}
+				= partial 'home/video_menu_item', :collection => @videos
+	.clearfix
+	
+#main
+	#vmenu
+		%ul
+			= partial 'home/page_menu_item', :collection => @pages
+		
+	#content
+		= partial 'home/page_content', :object => @pages[0]
+	
+	.clearfix

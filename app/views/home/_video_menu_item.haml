@@ -1,0 +1,6 @@
+%li
+	%a{:href =>"JavaScript:getVideo('" + video_menu_item.id.to_s + "');"}
+		%img.item_image_over{:src => "media/" + video_menu_item.image_over_url}/
+		%img.item_image{:src => "media/" + video_menu_item.image_url}/
+		%span
+			= @cat_hash[video_menu_item.category.to_s] ? @cat_hash[video_menu_item.category.to_s] : 'unknown category ' + video_menu_item.category.to_s

@@ -1,0 +1,26 @@
+.group
+  =f.label :title
+  =f.error_message_on :title
+  =f.text_field :title, :class => :text_field
+  %span.description The page title.
+
+.group
+  =f.label :content
+  =f.error_message_on :content
+  .clearfix
+  %textarea{:class=>"text_area", :id=>"page_content", :name=>"page[content]"}
+    - if @page.content != nil
+      = @page.content.gsub("\n", '&#10;').gsub("\r", '')
+  .clearfix
+  %span.description The page content.
+
+.group
+  =f.label :index
+  =f.error_message_on :index
+  =f.text_field :index, :class => :text_field
+  %span.description A numerical index (this determines the page order in the menu).
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:pages, :index)}';return false", :class => :button

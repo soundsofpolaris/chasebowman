@@ -1,0 +1,23 @@
+!!! 5
+%html{:lang=>"en"}
+	%head
+		%meta{:charset=>"utf-8"}
+		%title= @title
+		%meta{:name=>"description",:content=>""}
+		%meta{:name=>"author",:content=>""}
+		%link{:rel=>"shortcut icon",:href=>"/favicon.ico"}
+		= stylesheet_link_tag 'application'
+		= stylesheet_link_tag 'videomenu'
+		%script{:type=>"text/javascript", :src=>"https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
+		%script{:type=>"text/javascript", :src=>"javascripts/application.js"}
+		
+		%script{:type=>"text/javascript", :src=>"javascripts/hoverable_and_touchable.min.js"}
+		- puts session[:menu_version]
+		- if session[:menu_version] == "dynamic"
+			%script{:type=>"text/javascript", :src=>"javascripts/videomenu.js"}		
+		- else
+			%script{:type=>"text/javascript", :src=>"javascripts/videomenu_static.js"}	
+	%body	
+		= yield
+			
+		.clearfix

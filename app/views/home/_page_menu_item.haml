@@ -1,0 +1,2 @@
+%li{:id => 'item' + page_menu_item.id.to_s, :class=> page_menu_item_counter == 1 ? 'active' : '' }
+	= link_to page_menu_item.title.upcase, "JavaScript:getPage('" + page_menu_item.id.to_s + "')"

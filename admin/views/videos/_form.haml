@@ -1,0 +1,40 @@
+.group
+  =f.label :video_url
+  =f.error_message_on :video_url
+  =f.text_field :video_url, :class => :text_field
+  %span.description The video filename.
+
+.group
+  =f.label :image_url
+  =f.error_message_on :image_url
+  =f.text_field :image_url, :class => :text_field
+  %span.description The thumbnail image filename.
+
+.group
+  =f.label :image_over_url
+  =f.error_message_on :image_over_url
+  =f.text_field :image_over_url, :class => :text_field
+  %span.description The rollover thumbnail image filename.
+
+.group
+  =f.label :category
+  =f.error_message_on :category
+  =f.text_field :category, :class => :text_field
+  %span.description A category id (From a category in the Categories tab).
+
+.group
+  =f.label :type
+  =f.error_message_on :type
+  =f.text_field :type, :class => :text_field
+  %span.description The type can be either regular, vimeo or reel.
+
+.group
+  =f.label :index
+  =f.error_message_on :index
+  =f.text_field :index, :class => :text_field
+  %span.description A numerical index (this determines the video order in the menu).
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:videos, :index)}';return false", :class => :button
